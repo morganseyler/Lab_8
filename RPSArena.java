@@ -38,6 +38,10 @@ public class RPSArena
         // Initialize the CONTESTANT_MAP
         
         // Populate the CONTESTANT_MAP
+    	CONTESTANT_MAP.put("GEO", Contestant.GEORGE);
+    	CONTESTANT_MAP.put("JIL", Contestant.JILL);
+    	CONTESTANT_MAP.put("MAT", Contestant.MATTHEW);
+    	CONTESTANT_MAP.put("BET", Contestant.BETTY);
     }
     
     /**
@@ -50,6 +54,26 @@ public class RPSArena
     public Contestant getContestant(String key)
     {
         // TODO: implement this.
+    	if(key.equals("GEO"))
+    	{
+    		return Contestant.GEORGE;
+    	}
+    	else if(key.equals("JIL"))
+    	{
+    		return Contestant.JILL;
+    	}
+    	else if(key.equals("MAT"))
+    	{
+    		return Contestant.MATTHEW;
+    	}
+    	else if(key.equals("BET"))
+    	{
+    		return Contestant.BETTY;
+    	}
+    	else
+    	{
+    		return null;
+    	}
     }
     
     /**
