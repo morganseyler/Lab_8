@@ -51,6 +51,7 @@ public enum Contestant
     private Contestant(ContestantInfo info)
     {
         // TODO: implement.
+    	this.info = info;
     }
 
     /**
@@ -59,6 +60,7 @@ public enum Contestant
     public Region getRegion()
     {
         // TODO: implement this.
+    	return info.getRegion();
     }
 
     /**
@@ -67,6 +69,7 @@ public enum Contestant
     public HandChoice getChoice()
     {
         // TODO: implement this.
+    	return info.getChoice();
     }
 
     /** 
@@ -82,7 +85,6 @@ public enum Contestant
     public String toString()
     {
         String contestantName = name().toLowerCase();
-	// TEST TEST
 
         return String.format("%s: %s", contestantName, info.toString());
     }
