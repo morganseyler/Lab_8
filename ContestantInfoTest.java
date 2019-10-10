@@ -39,5 +39,6 @@ public class ContestantInfoTest
     public void contestantInfoToStringTest() throws AssertException
     {
     	// TODO: implement.
+        Assert.assertEquals("contestant from north throwing rock", info.toString());
     }
 }
