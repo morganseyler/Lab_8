@@ -20,6 +20,7 @@ public class ContestantInfoTest
     public static void initialize() throws AssertException
     {
     	// TODO: implement.
+        info = new ContestantInfo(Region.NORTH, HandChoice.ROCK);
     }
 
     /**
@@ -28,6 +29,8 @@ public class ContestantInfoTest
     public void contestantInfoConstructorTest() throws AssertException
     {
     	// TODO: implement.
+        Assert.assertEquals(Region.NORTH, info.getRegion());
+        Assert.assertEquals(HandChoice.ROCK, info.getChoice());
     }
 
     /**

@@ -62,5 +62,6 @@ public class ContestantInfo
     public String toString()
     {
     	/* TODO: finish this */
+    	return String.format("contestant from %s thropwing %s", region, choice);
     }
 }
