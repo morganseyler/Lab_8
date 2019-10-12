@@ -20,6 +20,7 @@ public class RPSArenaTest {
     public static void initialize() throws AssertException
     {
     	// TODO: implement.
+    	
     }
     
     /**
@@ -27,6 +28,7 @@ public class RPSArenaTest {
      */
     public void testContestantList() throws AssertException {
     	// TODO: implement.
+    	
     }
 
     /**
@@ -34,6 +36,7 @@ public class RPSArenaTest {
      */
     public void testContestantAbbreviations() throws AssertException {
     	// TODO: implement.
+
     }
     
     /**

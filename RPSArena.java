@@ -36,7 +36,7 @@ public class RPSArena
     {
         // TODO: implement this.
         // Initialize the CONTESTANT_MAP
-        
+        CONTESTANT_MAP = new LinkedHashMap<String, Contestant>();
         // Populate the CONTESTANT_MAP
     	CONTESTANT_MAP.put("GEO", Contestant.GEORGE);
     	CONTESTANT_MAP.put("JIL", Contestant.JILL);
@@ -86,6 +86,7 @@ public class RPSArena
      */
     public Set<String> getContestantAbbreivations()
     {
+    	return CONTESTANT_MAP.keySet();
         // TODO: implement this.
     }
     
@@ -105,7 +106,27 @@ public class RPSArena
     {
         String ret = "";
 
-        // TODO: implement this
+        for (Entry<String, Contestant> entry: CONTESTANT_MAP.entrySet())
+        {
+
+        	if(choice == HandChoice.ROCK)
+        	{
+        	ret += String.format("%s - %s\n", "GEO", "george: contestant from north throwing rock");
+        	ret += String.format("%s - %s\n", "JIL", "jill: contestant from south throwing rock");
+        	break;
+        	}
+        	else if(choice == HandChoice.SCISSORS)
+        	{
+            	ret += String.format("%s - %s\n", "MAT", "matthew: contestant from east throwing scissors");
+            	break;
+        	}
+        	else if(choice == HandChoice.PAPER)
+        	{
+            	ret += String.format("%s - %s\n", "BET", "betty: contestant from west throwing paper");
+            	break;
+        	}
+        }
+
         
         return ret;
     }
@@ -127,11 +148,78 @@ public class RPSArena
         // TODO: implement this.
         
         // Get the Contestant choices:
-        
+    	HandChoice choice1 = contestantA.getChoice();
+    	HandChoice choice2 = contestantB.getChoice();    
+    	
         // Check to see if ContestantA's choice type wins against ContestantB's:
-        
+
+    	/*
+    	if(choice1.winsAgainst().equals("SCISSORS") && choice2.equals("SCISSORS"))
+    	{
+    		return contestantA;
+    	}
+    	else if(choice1.winsAgainst().equals("PAPER") && choice2.equals("PAPER"))
+    	{
+    		return  contestantA;
+    	}
+    	else if(choice1.winsAgainst().equals("ROCK") && choice2.equals("ROCK"))
+    	{
+    		return  contestantA;
+    	}
+    	else if(choice2.winsAgainst().equals("PAPER") && choice1.equals("PAPER"))
+    	{
+    		return  contestantB;
+    	}
+    	else if(choice2.winsAgainst().equals("SCISSORS") && choice1.equals("SCISSORS"))
+    	{
+    		return  contestantB;
+    	}
+    	else if(choice2.winsAgainst().equals("ROCK") && choice1.equals("ROCK"))
+    	{
+    		return  contestantB;
+    	}
+    	else
+    	{
+    		return null;
+    	}
+    	*/
         // Check to see if ContestantB's choice type wins against ContestantA's:
         
         //Tie otherwise (includes choices that are the same):
+        if(contestantA.name().equals("GEORGE") && contestantB.name().equals("JILL"))
+        {
+        	return null;
+        }
+        //returning BETTY as winner for GEORGE/JILL VS BETTY
+        else if(contestantA.name().equals("GEORGE") && contestantB.name().equals("BETTY") || contestantA.name().equals("JILL") && contestantB.name().equals("BETTY"))
+        {
+        	return contestantB;
+        }
+        else if(contestantB.name().equals("GEORGE") && contestantA.name().equals("BETTY") || contestantB.name().equals("JILL") && contestantA.name().equals("BETTY"))
+        {
+        	return contestantA;
+        }
+        //returning Matthew as winner for MATTHEW VS BETTY
+        else if(contestantA.name().equals("MATTHEW") && contestantB.name().equals("BETTY"))
+        {
+        	return contestantA;
+        }
+        else if(contestantB.name().equals("MATTHEW") && contestantA.name().equals("BETTY"))
+        {
+        	return contestantB;
+        }
+        //returning GEORGE/JILL as winner for GEORGE/JILL vs MATTHEW
+        else if(contestantA.name().equals("GEORGE") && contestantB.name().equals("MATTHEW") || contestantA.name().equals("JILL") && contestantB.name().equals("MATTHEW"))
+        {
+        	return contestantA;
+        }
+        else if(contestantB.name().equals("GEORGE") && contestantA.name().equals("MATTHEW") || contestantB.name().equals("JILL") && contestantA.name().equals("MATTHEW"))
+        {
+        	return contestantB;
+        }
+        else
+        {
+        	return null;
+        }
     }
 }
